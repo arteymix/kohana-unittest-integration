@@ -1,0 +1,22 @@
+{
+    "name":        "arteymix/unittest-integration",
+    "type":        "kohana-module"
+    "description": "Provides integration testing for the Kohana framework.",
+    "license":     "BSD-3-Clause",
+    "keywords":    ["unittest", "integration", "functional"],
+    "authors": [
+        {
+            "name":     "Guillaume Poirier-Morency",
+            "email":    "guillaumepoiriermorency@gmail.com",
+            "homepage": "https://arteymix.github.io/about"
+            "role":     "developer"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/arteymix/kohana-unittest-integration"
+    },
+    "require": {
+        "kohana/core":     "3.3.*",
+        "kohana/unittest": "3.3.*"
+    }
+}
