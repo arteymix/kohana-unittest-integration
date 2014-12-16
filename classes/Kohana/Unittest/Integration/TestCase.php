@@ -17,13 +17,13 @@
 abstract class Kohana_Unittest_Integration_TestCase extends Unittest_TestCase {
 
 	/**
-	 * Assert that a given Response status match the expected value.
+	 * Assert that a given Response HTTP status match the expected value.
 	 *
 	 * @param integer  $code     expected status code
 	 * @param Response $response Response object
 	 * @param string   $message  message displayed if the test fail
 	 */
-	public function assertStatus($code, Response $response, $message = NULL)
+	public function assertHttpStatus($code, Response $response, $message = NULL)
 	{
 		if ($message === NULL)
 		{
@@ -35,39 +35,39 @@ abstract class Kohana_Unittest_Integration_TestCase extends Unittest_TestCase {
 
 	public function assertOk(Response $response, $message = NULL)
 	{
-		$this->assertStatus(200, $response, $message);
+		$this->assertHttpStatus(200, $response, $message);
 	}
 
 	public function assertPermanentRedirection($location, Response $response, $message = NULL)
 	{
-		$this->assertStatus(301, $response, $message);
+		$this->assertHttpStatus(301, $response, $message);
 		$this->assertEquals($location, $response->headers('Location'));
 	}
 
 	public function assertTemporaryRedirection($location, Response $response, $message = NULL)
 	{
-		$this->assertStatus(302, $response, $message);
+		$this->assertHttpStatus(302, $response, $message);
 		$this->assertEquals($location, $response->headers('Location'));
 	}
 
 	public function assertUnauthorized(Response $response, $message = NULL)
 	{
-		$this->assertStatus(401, $response, $message);
+		$this->assertHttpStatus(401, $response, $message);
 	}
 
 	public function assertForbidden(Response $response, $message = NULL)
 	{
-		$this->assertStatus(403, $response, $message);
+		$this->assertHttpStatus(403, $response, $message);
 	}
 
 	public function assertNotFound(Response $response, $message = NULL)
 	{
-		$this->assertStatus(404, $response, $message);
+		$this->assertHttpStatus(404, $response, $message);
 	}
 
 	public function assertServiceUnavailable(Response $response, $message = NULL)
 	{
-		$this->assertStatus(503, $response, $message);
+		$this->assertHttpStatus(503, $response, $message);
 	}
 
 }
