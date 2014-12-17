@@ -27,7 +27,9 @@ abstract class Kohana_Unittest_Integration_TestCase extends Unittest_TestCase {
 	{
 		if ($message === NULL)
 		{
-			$message = $response->body();
+			// limit just enough to see kohana message
+			// @todo scrap the error message or configure Kohana not to dump HTML
+			$message = Text::limit_chars($response->body(), 4096);
 		}
 
 		$this->assertEquals($code, $response->status(), $message);
